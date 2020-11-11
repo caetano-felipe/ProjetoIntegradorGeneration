@@ -36,27 +36,27 @@ public class CategoriaModel {
 		this.id = id;
 	}
 
-	public String getNome_categoria() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome_categoria(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getDescricao_categoria() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao_categoria(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-	public String getRamo_categoria() {
+	public String getRamo() {
 		return ramo;
 	}
 
-	public void setRamo_categoria(String ramo) {
+	public void setRamo(String ramo) {
 		this.ramo = ramo;
 	}
 
