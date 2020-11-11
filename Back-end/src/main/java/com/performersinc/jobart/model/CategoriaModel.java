@@ -18,15 +18,15 @@ public class CategoriaModel {
 	
 	@NotNull
 	@Size(min = 5, max = 100)
-	private String nome_categoria;
+	private String nome;
 	
 	@NotNull
 	@Size(min = 10, max = 1000)
-	private String descricao_categoria;
+	private String descricao;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
-	private String ramo_categoria;
+	private String ramo;
 
 	public long getId() {
 		return id;
@@ -36,28 +36,28 @@ public class CategoriaModel {
 		this.id = id;
 	}
 
-	public String getNome_categoria() {
-		return nome_categoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_categoria(String nome_categoria) {
-		this.nome_categoria = nome_categoria;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getDescricao_categoria() {
-		return descricao_categoria;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescricao_categoria(String descricao_categoria) {
-		this.descricao_categoria = descricao_categoria;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getRamo_categoria() {
-		return ramo_categoria;
+	public String getRamo() {
+		return ramo;
 	}
 
-	public void setRamo_categoria(String ramo_categoria) {
-		this.ramo_categoria = ramo_categoria;
+	public void setRamo(String ramo) {
+		this.ramo = ramo;
 	}
 
 }
