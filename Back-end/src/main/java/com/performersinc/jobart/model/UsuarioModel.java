@@ -5,14 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "tb_cliente")
 public class UsuarioModel {
-	
-	@Entity
-	@Table(name = "tb_cliente")
-	public class Usuario {
 		
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,8 @@ public class UsuarioModel {
 		private String nome;
 		
 		@NotNull
-		private String email;
+		@Email
+		private String usuario;
 		
 		@NotNull
 		private String senha;
@@ -44,14 +44,6 @@ public class UsuarioModel {
 			this.nome = nome;
 		}
 
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
 		public String getSenha() {
 			return senha;
 		}
@@ -59,7 +51,13 @@ public class UsuarioModel {
 		public void setSenha(String senha) {
 			this.senha = senha;
 		}
+
+		public String getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(String usuario) {
+			this.usuario = usuario;
+		}
 		
-		
-	}
 }
