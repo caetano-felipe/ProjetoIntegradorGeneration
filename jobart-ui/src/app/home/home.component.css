@@ -1,32 +1,34 @@
-.tamanho_img{
-    width:400px;
-    height:400px;
+.tamanho_img {
+    width: 400px;
+    height: 400px;
 }
-.bg_img{
+
+.bg_img {
     background-color: #20115F;
 }
-.p-button{
+
+.p-button {
     padding: 0px;
     border: 0px none;
     background-color: transparent;
     color: #ffffff;
 }
 
-.btn-danger{
+.btn-danger {
     color: #ffffff;
     background-color: #73C1B8;
     border-color: #73C1B8;
 }
 
-.txt_cinza{
+.txt_cinza {
     color: #5a5a5a;
 }
 
-.p_size{
+.p_size {
     font-size: 16pt;
 }
 
-.tamanho_exemplo{
-    width:100px;
-    height:100px;
+.tamanho_exemplo {
+    width: 100px;
+    height: 100px;
 }
