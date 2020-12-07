@@ -1,0 +1,17 @@
+.tamanho_img {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+
+.btn-outline-success{
+    color: #73C1B8;
+  background-color: #ffffff;
+  border-color: #73C1B8;
+}
+
+.btn-outline-success:hover{
+    color: rgb(255, 255, 255);
+  background-color: #73C1B8;
+  border-color: #73C1B8;
+}

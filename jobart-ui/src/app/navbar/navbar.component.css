@@ -6,8 +6,13 @@
   width: 150px;
   height: 40px;
 }
+
 .btn-danger{
   color: rgb(255, 255, 255);
   background-color: #73C1B8;
   border-color: #73C1B8;
+}
+
+a{
+  cursor: pointer;
 }
