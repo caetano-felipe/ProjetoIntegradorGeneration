@@ -10,7 +10,6 @@ import { ProdutoService } from '../services/produto.service';
 })
 export class ProdutoComponent implements OnInit {
 
-  public service = [1, 2, 3, 4, 5, 6, 7, 8];
 
   produto: Produto = new Produto();
   listaProdutos: Produto[];
@@ -27,9 +26,8 @@ export class ProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*
     window.scroll(0, 0)
     this.findAllProdutos()
-    */
+
   }
 }

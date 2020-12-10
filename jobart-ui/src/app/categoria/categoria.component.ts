@@ -24,6 +24,7 @@ export class CategoriaComponent implements OnInit {
 
   findAllCategorias() {
     this.categoriaService.getAllCategorias().subscribe((resp: Categoria[]) => {
+      console.log(resp)
       this.listaCategorias = resp
     })
   }

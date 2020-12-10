@@ -5,4 +5,5 @@ export class Categoria {
     public nome: string;
     public descricao: string;
     public ramo: string;
+    public produto: Produto[];
 }

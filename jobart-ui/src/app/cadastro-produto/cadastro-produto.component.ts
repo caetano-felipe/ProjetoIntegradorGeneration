@@ -20,9 +20,8 @@ export class CadastroProdutoComponent implements OnInit {
   categoria: Categoria = new Categoria()
   listaCategorias: Categoria[]
   idCategoria: number
+  nomeCategoria: string
 
-  public service = [1,2,3,4,5,6,7,8];
-  
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService

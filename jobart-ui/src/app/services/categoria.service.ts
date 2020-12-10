@@ -15,11 +15,11 @@ export class CategoriaService {
   }
 
   getAllCategorias() : Observable<Categoria[]>{
-    return this.http.get<Categoria[]>('http:localhost:9000/categoria', this.token)
+    return this.http.get<Categoria[]>('http://localhost:9000/categoria', this.token)
   }
 
   getByIdCategoria(id: number) : Observable<Categoria> {
-    return this.http.get<Categoria>(`https:localhost:9000/categoria/${id}`, this.token)
+    return this.http.get<Categoria>(`http://localhost:9000/categoria/${id}`, this.token)
   }
 
   postCategoria(categoria: Categoria) : Observable<Categoria> {
