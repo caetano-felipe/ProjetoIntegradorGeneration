@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from '../model/Produto';
+import { CategoriaService } from '../services/categoria.service';
+import { ProdutoService } from '../services/produto.service';
 
 @Component({
   selector: 'app-produto',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  produto: Produto = new Produto();
+  listaProdutos: Produto[];
+
+  constructor(
+    private produtoService: ProdutoService,
+    private categoriaService: CategoriaService
+  ) { }
+
+  findAllProdutos() {
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+      this.listaProdutos = resp;
+    })
   }
 
+  ngOnInit(): void {
+    window.scroll(0, 0)
+    this.findAllProdutos()
+
+  }
 }
