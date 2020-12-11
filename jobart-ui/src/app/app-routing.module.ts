@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { PutCategoriaComponent } from './put-categoria/put-categoria.component';
+import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.component';
+import { PutProdutoComponent } from './put-produto/put-produto.component';
+import { DeleteProdutoComponent } from './delete-produto/delete-produto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -16,7 +20,11 @@ const routes: Routes = [
   { path: 'cadastrar', component: CadastroComponent},
   { path: 'servico', component: ProdutoComponent},
   { path: 'categoria', component: CategoriaComponent },
-  { path: 'cadastro-servico', component: CadastroProdutoComponent}
+  { path: 'cadastro-servico', component: CadastroProdutoComponent},
+  { path: 'editar-categoria/:id', component: PutCategoriaComponent},
+  { path: 'delete-categoria/:id', component: DeleteCategoriaComponent},
+  { path: 'editar-produto/:id', component: PutProdutoComponent},
+  { path: 'delete-produto/:id', component: DeleteProdutoComponent}
 ];
 
 @NgModule({
