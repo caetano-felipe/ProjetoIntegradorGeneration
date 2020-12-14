@@ -4,6 +4,7 @@ import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
 import { CategoriaService } from '../services/categoria.service';
 import { ProdutoService } from '../services/produto.service';
+import { AlertService } from './../services/alert.service';
 
 @Component({
   selector: 'app-put-produto',
@@ -23,7 +24,8 @@ export class PutProdutoComponent implements OnInit {
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertService
 
   ) { }
 
@@ -49,11 +51,11 @@ export class PutProdutoComponent implements OnInit {
 
     this.produtoService.putProduto(this.produto).subscribe((resp: Produto) => {
       this.produto = resp
-      this.router.navigate(['/editar-produto'])
-      alert('Serviço atualizado com sucesso')
+      this.router.navigate(['/servico'])
+      this.alert.showAlertSuccess('Serviço atualizado com sucesso')
     }, err => {
       if(err.status == '500'){
-        alert('Preencha todos os campos completamente antes de enviar!')
+        this.alert.showAlertDanger('Preencha todos os campos completamente antes de enviar!')
       }
     })
   }

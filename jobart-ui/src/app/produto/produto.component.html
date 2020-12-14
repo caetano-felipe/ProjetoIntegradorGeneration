@@ -1,16 +1,19 @@
-<div class="container pt-5 pb-5 d-flex d-flex justify-content-around flex-wrap">
-    <div *ngFor="let item of listaProdutos; index as i" class="card p-1 rounded mb-5" style="width: 14rem;">
-        <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg" class="card-img-top rounded" alt="...">
+<div>
+    <div class="container pt-5 pb-5 d-flex d-flex justify-content-around flex-wrap">
+        <div *ngFor="let item of listaProdutos; index as i" class="card p-1 rounded mb-5" style="width: 14rem;">
+            <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg" class="card-img-top rounded" alt="...">
 
-        <div class="container-fluid d-flex justify-content-center p-0">
-            <div class="card-body p-3">
-                <h5 class="card-title text-center">{{item.nome }}</h5>
-                <p class="text-center"> R${{item.valorHora }} </p>
-                <p class="card-tex d-flex justify-content-left">{{item.tipo}}</p>
-                <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-danger w-100 rounded-pill">Contrate</a>
+            <div class="container-fluid d-flex justify-content-center p-0">
+                <div class="card-body p-3">
+                    <h5 class="card-title text-center">{{item.nome }}</h5>
+                    <p class="text-center"> R${{item.valorHora }} </p>
+                    <p class="card-tex d-flex justify-content-left">{{item.tipo}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger w-100 rounded-pill">Contrate</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
+</div>
+

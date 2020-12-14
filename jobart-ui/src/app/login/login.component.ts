@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from '../model/UserLogin';
@@ -16,16 +17,15 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
-
   ngOnInit(): void {
   }
-  
+
   entrar() {
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
-      localStorage.setItem('token', this.userLogin.token)
-      this.router.navigate(['/home'])
+      environment.token = this.userLogin.token
+      this.router.navigate(['/servico'])
     })
-  
+
   }
 }

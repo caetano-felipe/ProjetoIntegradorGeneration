@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row mt-5 mb-5">
-        <div class="col-md-12">
-            <h3 class="text-center mb-4 text-monospace">Cadastro de um novo Artiste</h3>
+    <div class="row mt-5 mb-5 d-flex justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-center mb-4">Cadastro de um novo Artiste</h3>
             <div class="form-group">
-                <label class="text-monospace" for="nome">Nome do Artiste: </label>
+                <label for="nome">Nome do Artiste: </label>
                 <input class="form-control" id="nome" rows="3" placeholder="Digite aqui o nome do Artiste" [(ngModel)]="produto.nome">
             </div>
             <div class="form-group">
-                <label class="text-monospace" for="categoria">Selecione a categoria: </label>
+                <label for="categoria">Selecione a categoria: </label>
                 <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
                   <option *ngFor="let item of listaCategorias" value={{item.id}}>
                       {{item.nome}}
@@ -15,15 +15,15 @@
               </select>
             </div>
             <div class="form-group">
-                <label class="text-monospace" for="tipo">Tipo: </label>
+                <label for="tipo">Tipo: </label>
                 <input class="form-control" id="tipo" rows="3" placeholder="Digite aqui o Tipo do Artiste" [(ngModel)]="produto.tipo">
             </div>
             <div class="form-group">
-                <label class="text-monospace" for="valor-hora">Valor hora: </label>
+                <label for="valor-hora">Valor hora: </label>
                 <input class="form-control" id="valor-hora" rows="3" placeholder="Digite aqui o valor por hora do Artiste" [(ngModel)]="produto.valorHora">
             </div>
             <div class="form-group">
-                <label class="text-monospace" for="localidade">Localidade: </label>
+                <label for="localidade">Localidade: </label>
                 <input class="form-control" id="localidade" rows="3" placeholder="Digite aqui a localidade do Artiste" [(ngModel)]="produto.localidade">
             </div>
             <div class="row mb-5">

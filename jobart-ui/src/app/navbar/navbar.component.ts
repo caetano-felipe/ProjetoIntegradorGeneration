@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private router: Router, 
+    private router: Router,
     public auth: AuthService
   ) { }
 
@@ -19,6 +20,11 @@ export class NavbarComponent implements OnInit {
 
   sair() {
     this.router.navigate(['/home'])
-    localStorage.clear()
+    environment.token = ''
+  }
+
+  scroll(){
+    let alvo = document.getElementById("#exemplos")
+    window.scroll(0, 10)
   }
 }

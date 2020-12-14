@@ -22,7 +22,7 @@
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-outline-success w-25" (click)='cadastrar()'>Cadastrar</button>
                 </div>
-                <table class="table table-hover">
+                <table class="table table-hover mt-5">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -35,8 +35,8 @@
                             <th scope="row">{{ item.id }}</th>
                             <td>{{item.nome}}</td>
                             <td class="d-flex justify-content-end">
-                                <a class="btn btn-outline-info mr-3">Editar</a>
-                                <a class="btn btn-outline-danger">Apagar</a>
+                                <a class="btn btn-outline-info mr-3" (click)="editar(item.id)">Editar</a>
+                                <a class="btn btn-outline-danger" (click)="delete(item.id)">Apagar</a>
                             </td>
                         </tr>
                     </tbody>
