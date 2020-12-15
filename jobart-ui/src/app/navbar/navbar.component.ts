@@ -2,6 +2,7 @@ import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { AlertService } from './../services/alert.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +13,24 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public auth: AuthService
+    public auth: AuthService,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
   }
 
+  home() {
+    if(environment.token == ''){
+      this.router.navigate(['/home'])  
+    }else {
+      this.sair()
+    } 
+  }
+
   sair() {
     this.router.navigate(['/home'])
+    this.alert.showAlertDanger('Deslogado!')
     environment.token = ''
   }
 

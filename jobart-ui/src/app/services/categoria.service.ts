@@ -35,4 +35,7 @@ export class CategoriaService {
     return this.http.delete(`http://localhost:9000/categoria/${id}`, this.token);
   }
 
+  getByNomeCategoria(nome: string): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`http://localhost:9000/categoria/nome/${nome}`, this.token)
+  }
 }
