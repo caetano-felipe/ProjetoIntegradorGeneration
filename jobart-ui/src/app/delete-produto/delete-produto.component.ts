@@ -40,5 +40,4 @@ export class DeleteProdutoComponent implements OnInit {
   btnNao(){
     this.router.navigate(['/servico'])
   }
-
 }

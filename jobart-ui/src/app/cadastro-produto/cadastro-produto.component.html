@@ -31,6 +31,25 @@
                     <button class="btn btn-outline-success w-25" (click)="cadastrar()">Cadastrar</button>
                 </div>
             </div>
+            <table class="table table-hover mt-5">
+              <thead>
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col" class="d-flex justify-content-end">Modificações</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor='let item of listaProdutos'>
+                      <th scope="row">{{ item.id }}</th>
+                      <td>{{item.nome}}</td>
+                      <td class="d-flex justify-content-end">
+                          <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-produto', item.id]">Editar</a>
+                          <a class="btn btn-outline-danger" [routerLink]="['/delete-produto', item.id]">Apagar</a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
         </div>
     </div>
 </div>

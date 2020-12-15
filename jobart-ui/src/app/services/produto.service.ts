@@ -36,6 +36,6 @@ export class ProdutoService {
   }
 
   getByNomeProduto(nome: string) : Observable<Produto[]> {
-    return this.http.get<Produto[]>(`http://localhost:9000/categoria/nome/${nome}`, this.token)
+    return this.http.get<Produto[]>(`http://localhost:9000/produto/nome/${nome}`, this.token)
   }
 }
