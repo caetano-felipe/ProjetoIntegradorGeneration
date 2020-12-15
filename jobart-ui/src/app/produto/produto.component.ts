@@ -13,7 +13,8 @@ import { AlertService } from './../services/alert.service';
 })
 export class ProdutoComponent implements OnInit {
 
-  nome: string
+  pesquisa:boolean = true;
+  nomeServico: string;
   produto: Produto = new Produto();
   listaProdutos: Produto[];
 
@@ -44,10 +45,10 @@ export class ProdutoComponent implements OnInit {
   }
 
   findByNomeProduto(){
-    if(this.nome === ''){
+    if(this.nomeServico === ''){
       this.findAllProdutos()
     } else {
-      this.produtoService.getByNomeProduto(this.nome).subscribe((resp: Produto[]) => {
+      this.produtoService.getByNomeProduto(this.nomeServico).subscribe((resp: Produto[]) => {
         this.listaProdutos = resp
       })
     }
@@ -71,6 +72,16 @@ export class ProdutoComponent implements OnInit {
 
   comprar(){
     this.alert.showAlertSuccess("Serviço contratado com sucesso!");
+  }
+
+  ativaCategoria(){
+    this.pesquisa  = false;
+    console.log(this.pesquisa)
+  }
+
+  ativaProduto(){
+    this.pesquisa = true;
+    console.log(this.pesquisa)
   }
   
 }

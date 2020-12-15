@@ -2,31 +2,31 @@
     <div class="container">
         <nav class="d-flex justify-content-center mt-5">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#minhas-postagens" role="tab" aria-controls="nav-home" aria-selected="true">Serviços</a>
-                <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#postagens-temas" role="tab" aria-controls="nav-profile" aria-selected="false"> Categorias </a>
+                <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#servicos" role="tab" aria-controls="nav-home" aria-selected="true" (click)="ativaProduto()">Serviços</a>
+                <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#categorias" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="ativaCategoria()"> Categorias </a>
             </div>
         </nav>
         <div class="tab-content mb-5" id="nav-tabContent">
 
-            <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel" aria-labelledby="nav-postagens-tab">
+            <div class="tab-pane fade show active" id="servicos" role="tabpanel" aria-labelledby="nav-postagens-tab">
                 <div class="row  mt-3 mb-3  ml-0  mr-0">
                     <div class=" col-12 col-md-10 p-0 m-0">
-                        <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar">
+                        <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar" [(ngModel)]="nomeServico">
                     </div>
                     <div class=" col-12 col-md-2 p-0 m-0">
-                        <button class="btn btn-outline-primary w-100" type="button">Pesquisar</button>
+                        <button class="btn btn-outline-primary w-100" type="button" (click)="findByNomeProduto()">Pesquisar</button>
                     </div>
                 </div>
             </div>
 
 
-            <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
+            <div class="tab-pane fade" id="categorias" role="tabpanel" aria-labelledby="nav-presenca-tab">
                 <div class="row mt-3 mb-3">
                     <div class="col-md-10 pr-0">
-                        <input class="form-control w-100" type="search" placeholder="Pesquisar Tema" aria-label="Pesquisar">
+                        <input class="form-control w-100" type="search" placeholder="Pesquisar Categoria" aria-label="Pesquisar" [(ngModel)]="nomeCategoria">
                     </div>
                     <div class="col-md-2 pl-0">
-                        <button class="btn  btn-outline-primary w-100" type="button">Pesquisar</button>
+                        <button class="btn  btn-outline-primary w-100" type="button" (click)="findByNomeCategoria()">Pesquisar</button>
                     </div>
                 </div>
             </div>
@@ -36,175 +36,48 @@
     </div>
 
     <div class="container mp-5 mb-5">
-        <div *ngFor="let x of listaCategorias" class="mp-5 mb-5">
-            <h1 class="text-center m-5"> {{x.nome}} </h1>
-            <carousel [height]="400" [overflowCellsLimit]="6" [cellWidth]="250">
-                <div class="carousel-cell" *ngFor="let y of x.produto">
-                    <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                        <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-                        <div class="container-fluid d-flex justify-content-center p-0 ">
-                            <div class="card-body p-3 ">
-                                <h5 class="card-title text-center ">aaaaa</h5>
-                                <p class="text-center "> R$200 </p>
-                                <p class="card-tex d-flex justify-content-left ">sdsdsdsdsdsdsdsdsdsdsd</p>
-                                <div class="d-flex justify-content-center ">
-                                    <button class="btn btn-danger my-2 my-sm-0 rounded-pill" type="button" (click)='comprar()'>Contratar</button>
-                                </div>
+
+        <div *ngIf="!!pesquisa">
+            <div class="pt-5 pb-5 d-flex d-flex justify-content-around flex-wrap">
+                <div *ngFor="let item of listaProdutos; index as i" class="card p-1 rounded mb-5" style="width: 14rem;">
+                    <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg" class="card-img-top rounded" alt="...">
+                    <div class="container-fluid d-flex justify-content-center p-0">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-center">{{item.nome }}</h5>
+                            <p class="text-center"> R${{item.valorHora }} </p>
+                            <p class="card-tex d-flex justify-content-left">{{item.tipo}}</p>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-danger w-100 rounded-pill" (click)='comprar()'>Contrate</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </carousel>
+            </div>
+        </div>
+
+        <div *ngIf="!pesquisa">
+            <div *ngFor="let x of listaCategorias; index as i;" class="mp-5 mb-5">
+                <h1 class="text-center m-5"> {{x.nome}} </h1>
+                <carousel [height]="400" [overflowCellsLimit]="6" [cellWidth]="250">
+                    <div class="carousel-cell" *ngFor="let y of x.produto">
+                        <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
+                            <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
+                            <div class="container-fluid d-flex justify-content-center p-0 ">
+                                <div class="card-body p-3 ">
+                                    <h5 class="card-title text-center "> {{y.nome}} </h5>
+                                    <p class="text-center "> R${{y.valorHora}} </p>
+                                    <p class="card-tex d-flex justify-content-left "> {{y.tipo}} </p>
+                                    <div class="d-flex justify-content-center ">
+                                        <button class="btn btn-danger my-2 my-sm-0 rounded-pill" type="button" (click)='comprar()'>Contratar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </carousel>
+                <hr *ngIf="!(i === (listaCategorias.length - 1))">
+            </div>
         </div>
     </div>
+
 </main>
-<!--
-<div class=" container mp-5 mb-5 ">
-    <carousel [height]="370 " [overflowCellsLimit]="6 " [cellWidth]="250 ">
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-cell ">
-            <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
-                <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg " class="card-img-top rounded " alt="... ">
-
-                <div class="container-fluid d-flex justify-content-center p-0 ">
-                    <div class="card-body p-3 ">
-                        <h5 class="card-title text-center ">dsdjsdjshdsddsd</h5>
-                        <p class="text-center "> R$200 </p>
-                        <p class="card-tex d-flex justify-content-left ">dsdsdsdsdsdsdsdsdsdsdsd</p>
-                        <div class="d-flex justify-content-center ">
-                            <a href="# " class="btn btn-danger w-100 rounded-pill ">dsdsdssdsdd</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </carousel>
-</div>
--->]
