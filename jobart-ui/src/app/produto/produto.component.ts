@@ -15,6 +15,7 @@ export class ProdutoComponent implements OnInit {
 
   pesquisa:boolean = true;
   nomeServico: string;
+  tipoServico: string
   produto: Produto = new Produto();
   listaProdutos: Produto[];
 
@@ -49,6 +50,16 @@ export class ProdutoComponent implements OnInit {
       this.findAllProdutos()
     } else {
       this.produtoService.getByNomeProduto(this.nomeServico).subscribe((resp: Produto[]) => {
+        this.listaProdutos = resp
+      })
+    }
+  }
+
+  findByTipoProduto(){
+    if(this.tipoServico === ''){
+      this.findAllProdutos()
+    } else {
+      this.produtoService.getByTipoProduto(this.tipoServico).subscribe((resp: Produto[]) => {
         this.listaProdutos = resp
       })
     }

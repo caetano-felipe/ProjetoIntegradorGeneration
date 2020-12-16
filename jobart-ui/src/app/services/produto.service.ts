@@ -38,4 +38,8 @@ export class ProdutoService {
   getByNomeProduto(nome: string) : Observable<Produto[]> {
     return this.http.get<Produto[]>(`http://localhost:9000/produto/nome/${nome}`, this.token)
   }
+
+  getByTipoProduto(tipo: string) : Observable<Produto[]> {
+    return this.http.get<Produto[]>(`http://localhost:9000/produto/tipo/${tipo}`, this.token)
+  }
 }

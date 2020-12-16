@@ -1,55 +1,57 @@
-<div class="container">
-    <div class="row mt-5 mb-5 d-flex justify-content-center">
-        <div class="col-md-6">
-            <h3 class="text-center mb-4">Cadastro de um novo Artiste</h3>
-            <div class="form-group">
-                <label for="nome">Nome do Artiste: </label>
-                <input class="form-control" id="nome" rows="3" placeholder="Digite aqui o nome do Artiste" [(ngModel)]="produto.nome">
-            </div>
-            <div class="form-group">
-                <label for="categoria">Selecione a categoria: </label>
-                <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
+<main class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row mt-5 mb-5 d-flex justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Cadastro de um novo Artiste</h3>
+                <div class="form-group">
+                    <label for="nome">Nome do Artiste: </label>
+                    <input class="form-control" id="nome" rows="3" placeholder="Digite aqui o nome do Artiste" [(ngModel)]="produto.nome">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Selecione a categoria: </label>
+                    <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
                   <option *ngFor="let item of listaCategorias" value={{item.id}}>
                       {{item.nome}}
                   </option>
               </select>
-            </div>
-            <div class="form-group">
-                <label for="tipo">Tipo: </label>
-                <input class="form-control" id="tipo" rows="3" placeholder="Digite aqui o Tipo do Artiste" [(ngModel)]="produto.tipo">
-            </div>
-            <div class="form-group">
-                <label for="valor-hora">Valor hora: </label>
-                <input class="form-control" id="valor-hora" rows="3" placeholder="Digite aqui o valor por hora do Artiste" [(ngModel)]="produto.valorHora">
-            </div>
-            <div class="form-group">
-                <label for="localidade">Localidade: </label>
-                <input class="form-control" id="localidade" rows="3" placeholder="Digite aqui a localidade do Artiste" [(ngModel)]="produto.localidade">
-            </div>
-            <div class="row mb-5">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <button class="btn btn-outline-success w-25" (click)="cadastrar()">Cadastrar</button>
                 </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo: </label>
+                    <input class="form-control" id="tipo" rows="3" placeholder="Digite aqui o Tipo do Artiste" [(ngModel)]="produto.tipo">
+                </div>
+                <div class="form-group">
+                    <label for="valor-hora">Valor hora: </label>
+                    <input class="form-control" id="valor-hora" rows="3" placeholder="Digite aqui o valor por hora do Artiste" [(ngModel)]="produto.valorHora">
+                </div>
+                <div class="form-group">
+                    <label for="localidade">Localidade: </label>
+                    <input class="form-control" id="localidade" rows="3" placeholder="Digite aqui a localidade do Artiste" [(ngModel)]="produto.localidade">
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <button class="btn btn-outline-success w-25" (click)="cadastrar()">Cadastrar</button>
+                    </div>
+                </div>
+                <table class="table table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col" class="d-flex justify-content-end">Modificações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let item of listaProdutos'>
+                            <th scope="row">{{ item.id }}</th>
+                            <td>{{item.nome}}</td>
+                            <td class="d-flex justify-content-end">
+                                <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-produto', item.id]">Editar</a>
+                                <a class="btn btn-outline-danger" [routerLink]="['/delete-produto', item.id]">Apagar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="table table-hover mt-5">
-              <thead>
-                  <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nome</th>
-                      <th scope="col" class="d-flex justify-content-end">Modificações</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor='let item of listaProdutos'>
-                      <th scope="row">{{ item.id }}</th>
-                      <td>{{item.nome}}</td>
-                      <td class="d-flex justify-content-end">
-                          <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-produto', item.id]">Editar</a>
-                          <a class="btn btn-outline-danger" [routerLink]="['/delete-produto', item.id]">Apagar</a>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
         </div>
     </div>
-</div>
+</main>

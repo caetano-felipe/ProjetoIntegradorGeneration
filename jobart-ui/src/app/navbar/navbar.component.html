@@ -35,14 +35,14 @@
             </div>
             <div *ngIf='auth.btnLogin()'>
                 <div>
-                    <button class="btn btn-danger my-2 my-sm-0 rounded-pill" type="button " routerLink='/cadastrar'>Cadastre-se</button>
+                    <button class="btn btn-danger my-2 my-sm-0 rounded-pill font-weight-bold cadastro" type="button" routerLink='/cadastrar'>Cadastre-se</button>
                 </div>
             </div>
             <div *ngIf='auth.btnSair()'>
-              <a class="nav-link text-light font-weight-bold pl-0" routerLink='/categoria'>Categoria</a>
+                <a class="nav-link text-light font-weight-bold pl-0" routerLink='/categoria'>Categoria</a>
             </div>
             <div *ngIf='auth.btnSair()'>
-              <a class="nav-link text-light font-weight-bold pl-0" routerLink='/cadastro-servico'>Serviço</a>
+                <a class="nav-link text-light font-weight-bold pl-0" routerLink='/cadastro-servico'>Serviço</a>
             </div>
             <div *ngIf='auth.btnSair()'>
                 <a class="nav-link text-light font-weight-bold pl-0" (click)='sair()'>Sair</a>

@@ -1,3 +1,23 @@
-.txt-cinza{
-  color: #5a5a5a;
+.txt-cinza {
+    color: #5a5a5a;
+}
+
+.btn-outline-info {
+    color: #5a5a5a;
+    border-color: #73C1B8;
+}
+
+.btn-outline-info:hover {
+    color: #ffffff;
+    background: #73C1B8;
+}
+
+.btn-outline-dark {
+    color: #5a5a5a;
+    border-color: #20115F;
+}
+
+.btn-outline-dark:hover {
+    color: #ffffff;
+    background: #20115F;
 }
