@@ -16,11 +16,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router, 
+    private router: Router,
     private alert: AlertService
 
   ) { }
-  ngOnInit(): void {
+  ngOnInit() {
+    window.scroll(0, 0)
   }
 
   entrar() {
@@ -29,13 +30,13 @@ export class LoginComponent implements OnInit {
         this.userLogin = resp
         environment.token = this.userLogin.token
         this.router.navigate(['/servico'])
-        this.alert.showAlertSuccess('Logado com sucesso!')    
+        this.alert.showAlertSuccess('Logado com sucesso!')
       })
     }
     else{
       this.alert.showAlertDanger("Preencher todos os campos!")
     }
-    
+
   }
 
   cadastrar() {

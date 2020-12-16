@@ -6,5 +6,6 @@ export class Produto {
     public tipo: string;
     public valorHora: number;
     public localidade: string;
+    public imagem: string;
     public categoria: Categoria;
 }

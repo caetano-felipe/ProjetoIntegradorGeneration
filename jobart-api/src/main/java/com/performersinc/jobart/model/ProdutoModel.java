@@ -29,6 +29,9 @@ public class ProdutoModel {
 	
 	@NotNull
 	private String localidade;
+
+	@NotNull
+	private String imagem;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
@@ -80,5 +83,13 @@ public class ProdutoModel {
 
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 }
