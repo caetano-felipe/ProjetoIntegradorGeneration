@@ -16,26 +16,26 @@ export class CategoriaService {
   }
 
   getAllCategorias() : Observable<Categoria[]>{
-    return this.http.get<Categoria[]>('http://localhost:9000/categoria', this.token)
+    return this.http.get<Categoria[]>('https://jobart.herokuapp.com/categoria', this.token)
   }
 
   getByIdCategoria(id: number) : Observable<Categoria> {
-    return this.http.get<Categoria>(`http://localhost:9000/categoria/${id}`, this.token)
+    return this.http.get<Categoria>(`https://jobart.herokuapp.com/categoria/${id}`, this.token)
   }
 
   postCategoria(categoria: Categoria) : Observable<Categoria> {
-    return this.http.post<Categoria>('http://localhost:9000/categoria', categoria, this.token)
+    return this.http.post<Categoria>('https://jobart.herokuapp.com/categoria', categoria, this.token)
   }
 
   putCategoria(categoria: Categoria) : Observable<Categoria> {
-    return this.http.put<Categoria>('http://localhost:9000/categoria',categoria, this.token );
+    return this.http.put<Categoria>('https://jobart.herokuapp.com/categoria',categoria, this.token );
   }
 
   deleteCategoria(id:number){
-    return this.http.delete(`http://localhost:9000/categoria/${id}`, this.token);
+    return this.http.delete(`https://jobart.herokuapp.com/categoria/${id}`, this.token);
   }
 
   getByNomeCategoria(nome: string): Observable<Categoria[]> {
-    return this.http.get<Categoria[]>(`http://localhost:9000/categoria/nome/${nome}`, this.token)
+    return this.http.get<Categoria[]>(`https://jobart.herokuapp.com/categoria/nome/${nome}`, this.token)
   }
 }

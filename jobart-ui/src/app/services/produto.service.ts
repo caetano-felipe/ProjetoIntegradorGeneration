@@ -16,30 +16,30 @@ export class ProdutoService {
   }
 
   getAllProdutos() : Observable<Produto[]> {
-    return this.http.get<Produto[]>('http://localhost:9000/produto', this.token)
+    return this.http.get<Produto[]>('https://jobart.herokuapp.com/produto', this.token)
   }
 
   getByIdProduto(id: number) : Observable<Produto> {
-    return this.http.get<Produto>(`http://localhost:9000/produto/${id}`, this.token)
+    return this.http.get<Produto>(`https://jobart.herokuapp.com/produto/${id}`, this.token)
   }
 
   postProduto(produto: Produto) : Observable<Produto> {
-    return this.http.post<Produto>('http://localhost:9000/produto', produto, this.token)
+    return this.http.post<Produto>('https://jobart.herokuapp.com/produto', produto, this.token)
   }
 
   putProduto(produto: Produto) : Observable<Produto> {
-    return this.http.put<Produto>('http://localhost:9000/produto', produto, this.token)
+    return this.http.put<Produto>('https://jobart.herokuapp.com/produto', produto, this.token)
   }
 
   deleteProduto(id: number) {
-    return this.http.delete(`http://localhost:9000/produto/${id}`, this.token)
+    return this.http.delete(`https://jobart.herokuapp.com/produto/${id}`, this.token)
   }
 
   getByNomeProduto(nome: string) : Observable<Produto[]> {
-    return this.http.get<Produto[]>(`http://localhost:9000/produto/nome/${nome}`, this.token)
+    return this.http.get<Produto[]>(`https://jobart.herokuapp.com/produto/nome/${nome}`, this.token)
   }
 
   getByTipoProduto(tipo: string) : Observable<Produto[]> {
-    return this.http.get<Produto[]>(`http://localhost:9000/produto/tipo/${tipo}`, this.token)
+    return this.http.get<Produto[]>(`https://jobart.herokuapp.com/produto/tipo/${tipo}`, this.token)
   }
 }
