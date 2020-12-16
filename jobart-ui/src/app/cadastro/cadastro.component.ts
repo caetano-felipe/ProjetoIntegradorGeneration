@@ -19,7 +19,9 @@ export class CadastroComponent implements OnInit {
     private alert: AlertService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    window.scroll(0, 0)
+  }
 
   cadastrar() {
     if (this.senha === this.user.senha) {

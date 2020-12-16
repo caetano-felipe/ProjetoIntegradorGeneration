@@ -1,0 +1,4 @@
+.alert {
+    order: 999;
+    z-index: 100;
+}

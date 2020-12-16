@@ -54,7 +54,10 @@ import { from } from 'rxjs';
     ModalModule.forRoot(),
     IvyCarouselModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
