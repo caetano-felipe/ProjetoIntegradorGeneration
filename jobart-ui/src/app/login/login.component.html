@@ -1,23 +1,26 @@
-<div class="container">
-    <div class="row mb-5 d-flex justify-content-center">
-        <div class="col-md-6 mt-5">
-            <img class="tamanho_img mx-auto d-block"src="/assets/images/Malabarista.svg" alt="">
-            <h1 class="text-center mt-5">Gostaria de contratar artistas?</h1>
-            <p class="text-center mb-5">Faça seu login e descubra talentos!</p>
-            <div>
-                <div class="form-group">
-                    <label for="email">Endereço de email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Seu email" [(ngModel)]='userLogin.usuario'>
-                    <small>Nunca vamos compartilhar seu email com ninguém!</small>
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Senha" [(ngModel)]='userLogin.senha'>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-outline-success w-25" (click)='entrar()'>Entrar</button>
+<main class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row mb-5 d-flex justify-content-center">
+            <div class="col-md-6 mt-5">
+                <img class="tamanho_img mx-auto d-block" src="/assets/images/Malabarista.svg" alt="">
+                <h1 class="text-center mt-5">Gostaria de contratar artistas?</h1>
+                <p class="text-center mb-5">Faça seu login e descubra talentos!</p>
+                <div>
+                    <div class="form-group">
+                        <label for="email">Endereço de email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Seu email" [(ngModel)]='userLogin.usuario'>
+                        <small>Nunca vamos compartilhar seu email com ninguém!</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Senha" [(ngModel)]='userLogin.senha'>
+                        <small>Ainda não possui uma conta? <a routerLink='/cadastrar'>Clique aqui para criar</a></small>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-success w-25" (click)='entrar()'>Entrar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>

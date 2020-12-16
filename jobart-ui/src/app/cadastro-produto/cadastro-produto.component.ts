@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AlertService } from './../services/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
@@ -24,7 +26,9 @@ export class CadastroProdutoComponent implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private router: Router,
+    private alert : AlertService
   ) { }
 
   ngOnInit() {
@@ -51,12 +55,13 @@ export class CadastroProdutoComponent implements OnInit {
     this.produto.categoria = this.categoria
 
     if (this.produto.nome == null || this.produto.tipo == null || this.produto.valorHora == null || this.produto.localidade == null || this.produto.categoria == null) {
-      alert('Preencha todos os campos antes de publicar!')
+      this.alert.showAlertDanger('Preencha todos os campos antes de publicar!')
     } else {
       this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
         this.produto = resp
         this.produto = new Produto()
-        alert('Serviço cadastrado com sucesso!')
+        this.router.navigate(['/servico']);
+        this.alert.showAlertSuccess('Serviço cadastrado com sucesso!')
         this.findAllProdutos()
       })
     }
@@ -68,3 +73,4 @@ export class CadastroProdutoComponent implements OnInit {
     })
   }
 }
+

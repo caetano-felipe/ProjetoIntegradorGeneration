@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { OrderModule } from 'ngx-order-pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,8 @@ import { PutCategoriaComponent } from './put-categoria/put-categoria.component';
 import { PutProdutoComponent } from './put-produto/put-produto.component';
 import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.component';
 import { DeleteProdutoComponent } from './delete-produto/delete-produto.component';
+import { AlertsComponent } from './alerts/alerts.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,8 @@ import { DeleteProdutoComponent } from './delete-produto/delete-produto.componen
     PutCategoriaComponent,
     PutProdutoComponent,
     DeleteCategoriaComponent,
-    DeleteProdutoComponent
+    DeleteProdutoComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,9 @@ import { DeleteProdutoComponent } from './delete-produto/delete-produto.componen
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    ModalModule.forRoot(),
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

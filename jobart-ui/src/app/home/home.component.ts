@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertService } from './../services/alert.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private alert: AlertService
+  ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
+  }
+
+  entrar() {
+    this.router.navigate(['/login'])
   }
 
 }

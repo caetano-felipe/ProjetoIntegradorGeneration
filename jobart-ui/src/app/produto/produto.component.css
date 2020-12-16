@@ -12,3 +12,7 @@
 hr {
     border-color: #73C1B8;
 }
+
+main {
+    min-height: 100vh;
+}

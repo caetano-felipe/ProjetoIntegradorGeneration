@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Produto } from '../model/Produto';
@@ -11,7 +12,7 @@ export class ProdutoService {
   constructor(private http: HttpClient) { }
 
   token = {
-    headers: new HttpHeaders().set('Authorization', localStorage.getItem('token')!)
+    headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
   getAllProdutos() : Observable<Produto[]> {
@@ -25,12 +26,20 @@ export class ProdutoService {
   postProduto(produto: Produto) : Observable<Produto> {
     return this.http.post<Produto>('http://localhost:9000/produto', produto, this.token)
   }
- 
+
   putProduto(produto: Produto) : Observable<Produto> {
     return this.http.put<Produto>('http://localhost:9000/produto', produto, this.token)
   }
 
   deleteProduto(id: number) {
     return this.http.delete(`http://localhost:9000/produto/${id}`, this.token)
+  }
+
+  getByNomeProduto(nome: string) : Observable<Produto[]> {
+    return this.http.get<Produto[]>(`http://localhost:9000/produto/nome/${nome}`, this.token)
+  }
+
+  getByTipoProduto(tipo: string) : Observable<Produto[]> {
+    return this.http.get<Produto[]>(`http://localhost:9000/produto/tipo/${tipo}`, this.token)
   }
 }

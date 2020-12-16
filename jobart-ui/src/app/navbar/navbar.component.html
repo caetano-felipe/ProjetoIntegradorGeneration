@@ -1,24 +1,32 @@
 <div class="container-fluid w-100 p-0">
     <nav class="navbar navbar-expand-lg navbar-light navbar-color">
-        <a class="navbar-brand" href="#"><img class="logo" src="/assets/images/LOGO_INTEGRADOR.png" alt=""></a>
+        <a class="navbar-brand" (click)='home()'><img class="logo" src="/assets/images/LOGO_INTEGRADOR.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-light font-weight-bold" href="#artistas_freelancers">Artistas Freelancers<span class="sr-only">(página atual)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light font-weight-bold" href="#como_funciona">Como Funciona</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light font-weight-bold" href="#exemplos">Contrate</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light font-weight-bold" routerLink='/about'>Sobre</a>
-                </li>
+                <div *ngIf='auth.btnLogin()'>
+                    <li class="nav-item active">
+                        <a class="nav-link text-light font-weight-bold">Artistas Freelancers<span class="sr-only">(página atual)</span></a>
+                    </li>
+                </div>
+                <div *ngIf='auth.btnLogin()'>
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold" href="#como_funciona">Como Funciona</a>
+                    </li>
+                </div>
+                <div *ngIf='auth.btnLogin()'>
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold" href="#exemplos">Contrate</a>
+                    </li>
+                </div>
+                <div *ngIf='auth.btnLogin()'>
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold" href="#equipe">Sobre</a>
+                    </li>
+                </div>
             </ul>
             <div *ngIf='auth.btnLogin()'>
                 <div>
@@ -27,13 +35,21 @@
             </div>
             <div *ngIf='auth.btnLogin()'>
                 <div>
-                    <a class="nav-link text-light font-weight-bold pl-0" routerLink='/cadastrar'>Cadastre-se</a>
+                    <button class="btn btn-danger my-2 my-sm-0 rounded-pill font-weight-bold cadastro" type="button" routerLink='/cadastrar'>Cadastre-se</button>
                 </div>
+            </div>
+            <div *ngIf='auth.btnSair()'>
+                <a class="nav-link text-light font-weight-bold pl-0" routerLink='/categoria'>Categoria</a>
+            </div>
+            <div *ngIf='auth.btnSair()'>
+                <a class="nav-link text-light font-weight-bold pl-0" routerLink='/cadastro-servico'>Serviço</a>
             </div>
             <div *ngIf='auth.btnSair()'>
                 <a class="nav-link text-light font-weight-bold pl-0" (click)='sair()'>Sair</a>
             </div>
-            <button class="btn btn-danger my-2 my-sm-0 rounded-pill" type="button ">Contrate um artista</button>
+            <div *ngIf='auth.btnSair()'>
+                <button class="btn btn-danger my-2 my-sm-0 rounded-pill" type="button " routerLink='/servico'>Contrate um artista</button>
+            </div>
         </div>
     </nav>
 </div>

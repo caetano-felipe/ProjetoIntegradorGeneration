@@ -32,3 +32,28 @@
     width: 100px;
     height: 100px;
 }
+
+.btn-outline-info {
+    color: #5a5a5a;
+    border-color: #73C1B8;
+}
+
+.btn-outline-info:hover {
+    color: #ffffff;
+    background: #73C1B8;
+}
+
+.btn-outline-dark {
+    color: #5a5a5a;
+    border-color: #20115F;
+}
+
+.btn-outline-dark:hover {
+    color: #ffffff;
+    background: #20115F;
+}
+
+.contrate:hover {
+    background: #20115F;
+    border-color: #20115F
+}
