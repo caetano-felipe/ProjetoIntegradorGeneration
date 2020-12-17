@@ -4,6 +4,16 @@
     border-color: #73C1B8;
 }
 
+.btn-outline-primary {
+  color:  #1f1f7a;
+  border-color: #1f1f7a;
+}
+
+.btn-outline-primary:hover {
+  color: #ffffff;
+  background: #1f1f7a;
+}
+
 .card {
     color: #ffffff;
     background-color: #1f1f7a;
@@ -28,4 +38,8 @@ main {
 
 carousel {
     z-index: 1;
+}
+
+.txt_cinza {
+  color: #5a5a5a;
 }

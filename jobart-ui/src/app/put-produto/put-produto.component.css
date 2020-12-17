@@ -1,3 +1,13 @@
 main {
     min-height: 100vh;
 }
+
+.btn-outline-success {
+  color: #73C1B8;
+  border-color: #73C1B8;
+}
+
+.btn-outline-success:hover {
+  color: #ffffff;
+  background: #73C1B8;
+}

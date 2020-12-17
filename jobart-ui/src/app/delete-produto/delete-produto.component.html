@@ -5,7 +5,7 @@
                 <div class="card mt-5 ">
                     <div class="card-header d-flex justify-content-center">
                         <div class="card p-1 rounded mb-3" style="width: 14rem;">
-                            <img src="http://www.magicando.com.br/blog/wp-content/uploads/2015/01/magico1.jpg" class="card-img-top rounded" alt="...">
+                            <img src={{produto.imagem}} class="card-img-top rounded" alt="...">
 
                             <div class="container-fluid d-flex justify-content-center p-0">
                                 <div class="card-body p-3">
@@ -15,11 +15,10 @@
                         </div>
                     </div>
                 </div>
-                <hr class="mt-4 mb-4">
                 <h5 class="text-center">Tem certeza que deseja apagar esse Serviço?</h5>
                 <div class="d-flex justify-content-center mt-5">
-                    <button class="btn btn-outline-success mr-3" (click)="btnSim()">Sim</button>
-                    <button class="btn btn-outline-danger" (click)="btnNao()">Não</button>
+                    <button class="btn btn-outline-success mr-3 font-weight-bold" (click)="btnSim()">Sim</button>
+                    <button class="btn btn-outline-danger font-weight-bold" (click)="btnNao()">Não</button>
                 </div>
             </div>
         </div>

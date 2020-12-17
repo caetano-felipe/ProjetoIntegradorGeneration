@@ -1,3 +1,33 @@
 main {
     min-height: 100vh;
 }
+
+.btn-outline-success {
+  color: #73C1B8;
+  border-color: #73C1B8;
+}
+
+.btn-outline-success:hover {
+  color: #ffffff;
+  background: #73C1B8;
+}
+
+.btn-outline-info {
+  color: #1f1f7a;
+  border-color:  #1f1f7a;
+}
+
+.btn-outline-info:hover {
+  color: #ffffff;
+  background: #1f1f7a;
+}
+
+.btn-outline-danger {
+  color: #D73146;
+  border-color: #D73146;
+}
+
+.btn-outline-danger:hover {
+  color: #ffffff;
+  background: #D73146;
+}

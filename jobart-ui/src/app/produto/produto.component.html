@@ -26,7 +26,7 @@
                         <input class="form-control w-100" type="search" placeholder="Pesquisar Categoria" aria-label="Pesquisar" [(ngModel)]="nomeCategoria">
                     </div>
                     <div class="col-md-2 p-0 m-0">
-                        <button class="btn  btn-outline-primary w-100" type="button" (click)="findByNomeCategoria()">Pesquisar</button>
+                        <button class="btn btn-outline-primary w-100" type="button" (click)="findByNomeCategoria()">Pesquisar</button>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                             <h5 class="card-title text-center font-weight-bold">{{item.nome}}</h5>
                             <p class="text-center">{{item.categoria.nome}}</p>
                             <p class="card-tex d-flex justify-content-center">{{item.tipo}}</p>
-                            <p class="text-center"> R${{item.valorHora }} </p>
+                            <p class="text-center">Valor/Hora - R${{item.valorHora}}</p>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn btn-danger w-100 rounded-pill font-weight-bold" (click)='comprar()'>Contrate</button>
                             </div>
@@ -60,7 +60,7 @@
 
         <div *ngIf="!pesquisa">
             <div *ngFor="let x of listaCategorias; index as i;" class="mp-5 mb-5">
-                <h1 class="text-center m-5"> {{x.nome}} </h1>
+                <h1 class="text-center m-5 txt_cinza"> {{x.nome}} </h1>
                 <carousel [height]="400" [overflowCellsLimit]="1" [cellWidth]="250">
                     <div class="carousel-cell" *ngFor="let y of x.produto">
                         <div class="card p-1 rounded mb-5 " style="width: 14rem; ">
@@ -70,7 +70,7 @@
                             <div class="container-fluid d-flex justify-content-center p-0 ">
                                 <div class="card-body p-3 ">
                                     <h5 class="card-title text-center font-weight-bold"> {{y.nome}} </h5>
-                                    <p class="text-center "> R${{y.valorHora}} </p>
+                                    <p class="text-center ">Valor/Hora - R${{y.valorHora}} </p>
                                     <p class="card-tex d-flex justify-content-center"> {{y.tipo}} </p>
                                     <div class="d-flex justify-content-center ">
                                         <button class="btn btn-danger w-100 rounded-pill font-weight-bold" type="button" (click)='comprar()'>Contrate</button>

@@ -12,6 +12,8 @@ import { CategoriaService } from '../services/categoria.service';
 })
 export class PutCategoriaComponent implements OnInit {
   categoria: Categoria = new Categoria();
+  idCategoria: number
+  id: number
 
   constructor(
     private categoriaService: CategoriaService,
@@ -29,8 +31,8 @@ export class PutCategoriaComponent implements OnInit {
     }
 
     window.scroll(0, 0);
-    let id: number = this.route.snapshot.params['id'];
-    this.findByIdCategoria(id);
+    this.id = this.route.snapshot.params['id'];
+    this.findByIdCategoria(this.id);
   }
 
   findByIdCategoria(id: number) {
@@ -40,6 +42,8 @@ export class PutCategoriaComponent implements OnInit {
   }
 
   salvar() {
+    this.categoria.id = this.id
+
     this.categoriaService
       .putCategoria(this.categoria)
       .subscribe((resp: Categoria) => {
@@ -47,6 +51,5 @@ export class PutCategoriaComponent implements OnInit {
         this.router.navigate(['/categoria']);
         this.alert.showAlertSuccess('Categoria atualizado com sucesso');
       });
-
   }
 }
