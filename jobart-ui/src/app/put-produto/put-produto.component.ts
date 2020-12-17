@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from '../model/Categoria';
@@ -30,6 +31,13 @@ export class PutProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Realize o login!')
+    }
+
     window.scroll(0,0)
 
     this.idPost = this.route.snapshot.params["id"]

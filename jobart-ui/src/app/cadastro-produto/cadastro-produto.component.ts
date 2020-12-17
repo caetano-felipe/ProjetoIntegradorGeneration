@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Router } from '@angular/router';
 import { AlertService } from './../services/alert.service';
 import { Component, OnInit } from '@angular/core';
@@ -32,6 +33,13 @@ export class CadastroProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Realize o login!')
+    }
+
     window.scroll(0, 0)
 
     this.findAllProdutos()

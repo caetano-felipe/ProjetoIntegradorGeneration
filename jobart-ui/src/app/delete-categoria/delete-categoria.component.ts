@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from '../model/Categoria';
@@ -21,6 +22,13 @@ export class DeleteCategoriaComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Realize o login!')
+    }
+
     window.scroll(0,0)
     let id: number = this.route.snapshot.params['id']
     this.findByIdCategoria(id);

@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from '../model/Categoria';
@@ -22,15 +23,28 @@ export class ProdutoComponent implements OnInit {
   nomeCategoria: string;
   listaCategorias: Categoria[];
 
-  
+
 
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private alert: AlertService,
     private router: Router
-    
+
   ) { }
+
+  ngOnInit() {
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Realize o login!')
+    }
+
+    window.scroll(0, 0);
+    this.findAllProdutos();
+    this.findAllCategoria();
+  }
 
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
@@ -75,11 +89,6 @@ export class ProdutoComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    window.scroll(0, 0);
-    this.findAllProdutos();
-    this.findAllCategoria();
-  }
 
   comprar(){
     this.alert.showAlertSuccess("Serviço contratado com sucesso!");
@@ -94,5 +103,5 @@ export class ProdutoComponent implements OnInit {
     this.pesquisa = true;
     console.log(this.pesquisa)
   }
-  
+
 }

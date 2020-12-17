@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { AlertService } from './../services/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -21,6 +22,13 @@ export class CategoriaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alert.showAlertInfo('Realize o login!')
+    }
+
     this.findAllCategorias()
   }
 
