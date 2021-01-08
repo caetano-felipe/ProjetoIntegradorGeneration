@@ -15,8 +15,15 @@
 }
 
 .card {
-    color: #ffffff;
-    background-color: #1f1f7a;
+    color: #5a5a5a;
+    border: 2px solid #20115F;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.card:hover {
+    border-color: #D73146;
 }
 
 hr {
